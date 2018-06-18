@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+	<h1>Homework 1</h1>
+
+	<script>
+	//Task 1
+		var x = 5;
+		var y = -10;
+		var z = x * y;
+		console.log(z);
+	
+	//task 2
+		function Presentation() {
+		var name="Tom";
+		var age="20";
+		var town="Sofia";
+		var Presentation = `Hello, my name is ${name}, Im ${age} years old, and Im from ${town}.`;
+		
+		document.getElementById("Me").innerHTML = Presentation;
+		//console.log(`Hello, my name is ${name}, Im ${age} years old, and Im from ${town}.`);
+	}
+	
+	//task 3
+		function InchesToCentimeters(){
+		var inch = document.getElementById("inch").value;
+		var x = document.getElementById("x").value;
+		var ResultOfConversion = x*inch;
+		
+		document.getElementById("ResultOfConversion").innerHTML = ResultOfConversion;
+		
+	}
+	
+	//Task 4
+		function AreaOfTrapeze(){
+		var b1=5;
+		var b2=3;
+		var h=2;
+		var AreaOfTrapeze=(b1+b2)*h/2;
+		
+		document.getElementById("Trapeze").innerHTML = AreaOfTrapeze;
+	}
+
+	//Task 5
+		function Circle(){
+		var r = document.getElementById("radius").value;
+		var area = Math.PI*r*r;
+		var perimeter=2*Math.PI*r;
+	
+		document.getElementById("AreaOfCircle").innerHTML = Math.abs(area);
+		document.getElementById("PerimeterOfCircle").innerHTML = Math.abs(perimeter);
+	}
+	
+	
+	//Task 6
+		function Rectangle() {
+		var x1=50;
+		var y1=10;
+		var x2=20;
+		var y2=60;
+		var lenght=y2-y1;
+		var height=x1-x2;
+		var area=lenght*height;
+		var perimeter=2*(lenght+heig);
+		
+		document.getElementById("AreaOfRectangle").innerHTML = area;
+        document.getElementById("PerimeterOfRectangle").innerHTML = perimeter;
+	}
+		
+	//task 6*
+		function AreaAndPerimeter() {
+        var y1 = document.getElementById("y1").value;
+        var y2 = document.getElementById("y2").value;
+		var x1 = document.getElementById("x1").value;
+        var x2 = document.getElementById("x2").value;
+        var lenght = Math.abs(y2 - y1);
+		var height = Math.abs(x1 - x2);
+		var area = lenght*height;
+		var perimeter=2*(lenght+height);
+		
+        document.getElementById("area").innerHTML = area;
+        document.getElementById("perimeter").innerHTML = perimeter;
+	}
+
+	</script>
+	<!--Task 2-->
+	<h2>Task 2 : Personal presentation</h2>
+	<p id="Me">Click the button to change the text in this paragraph.</p>
+	<button onclick="Presentation()">Click</button>
+	
+	<!--Task 3-->
+	<h2>Task 3 : From inches to Centimeters</h2>
+	<p>Convert from inches to centimeters:</p>
+	<p>
+		<span>inch: </span><input type="number" placeholder="number" id="inch" value="2.54">
+	</p>
+	<p>
+		<span>x: </span><input type="number" min="0" placeholder="number" id="x">
+	</p>
+	
+	<button onclick="InchesToCentimeters()">Calculate</button> 
+	<p>Result Of Conversion:</p>
+	<p id="ResultOfConversion"></P>
+	
+	<!--Task 4-->
+	<h2>Task 4 : Area of Trapeze:</h2>
+	<p>Click the button to show the area of trapeze.</p>
+	
+	<button onclick="AreaOfTrapeze()">Click</button> 
+	<p id="Trapeze"></p>
+	
+	<!--Task 5-->
+	<h2>Task 5 : Area and Perimeter of Circle</h2>
+	<p>
+	<span>radius: </span><input type="number" placeholder="radius" id="radius">
+	</p>
+	
+	<button onclick="Circle()">Calculate</button>
+	<p>Area: </p>
+	<p id="AreaOfCircle"></p>
+	<p>Perimeter: </p>
+	<p id="PerimeterOfCircle"></p>
+	
+	<!--Task 6-->
+	<h2>Task 6 : Cordinate system - Area and Perimeter of a Rectangle</h2>
+	<p>Click the button to show the area and peri of a rectangle.</p>
+	
+	<button onclick="Rectangle()">Click</button>
+	<p>Area:</p>
+	<p id="AreaOfRectangle"></p>
+	<p>Perimeter:</p>
+	<p id="PerimeterOfRectangle"></p>
+	
+	
+	<!--Task 6*-->
+	<h2>Task 6* : Cordinate system - Area and Perimeter of a Rectangle</h2>
+	<p>Enter cordinates:</p>
+	<p>
+		<span>x1: </span><input type="number" min="0" placeholder="number" id="x1">
+	</p>
+	<p>
+		<span>y1: </span><input type="number" min="0" placeholder="number" id="y1">
+	</p>
+	<p>
+		<span>x2: </span><input type="number" min="0" placeholder="number" id="x2">
+	</p>
+	<p>
+		<span>y2: </span><input type="number" min="0" placeholder="number" id="y2">
+	</p>
+	
+	<button onclick="AreaAndPerimeter()">Calculate</button>
+	<p>Area:</p>
+	<p id="area"></P>
+	<p>Perimeter:</p>
+	<p id="perimeter"></p>
+	
+</body>
+</html>
