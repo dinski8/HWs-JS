@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+<script>
+//Task 1
+			max = 100;
+			min = -10;
+			var x=Math.floor(Math.random() * (max - min)) + min;
+			var y=Math.floor(Math.random() *(max - min)) + min;
+			var z = x / y;
+			if(x < 0 || y < 0){
+			var z;
+			console.log(z,"-");
+			}
+			else if(x < 0 && y < 0 ){
+			var z ;
+			console.log(z, "+");
+			}
+			else if(x > 0 && y > 0){
+			var z;
+			console.log(z,"+");
+			}
+			else{}
+//Task 2 
+			var x = Math.floor((Math.random() * 10) + 1);
+			var y = Math.floor((Math.random() * 10) + 1);
+			var z = Math.floor((Math.random() * 10) + 1);
+			if(x > y && x > z){
+				console.log("The biggest number is x:",x,y,z);
+			}
+			else if(y > x && y > z){
+				console.log("The biggest number is y:",x,y,z);
+			}
+			else{
+				console.log("The biggest number is z:",x,y,z);
+			}
+//Task 3	
+			var number=Math.floor((Math.random()*9)+0);
+			
+			switch(number){
+				case 0:
+					number="zero";
+					break;
+				case 1:
+					number="one";
+					break;
+				case 2:
+					number="two";
+					break;
+				case 3:
+					number="three";
+					break;
+				case 4:
+					number="four";
+					break;
+				case 5:
+					number="five";
+					break;
+				case 6:
+					number="six";
+					break;
+				case 7:
+					number="seven";
+					break;
+				case 8:
+					number="eight";
+					break;
+				case 9:
+					number="nine";
+					break;
+			}
+			console.log(number);
+//Task 4
+			var a =	Math.floor((Math.random()*100)+1);
+			var b = Math.floor((Math.random()*100)+1);
+			var c = Math.floor((Math.random()*100)+1);
+
+			if(a + b < c){
+				console.log("Triangle impossible",a,b,c);
+			}
+			else{
+				console.log("Triangle possible",a,b,c);
+			}
+			//with ternary operator
+			var Triangle = (a + b < c) ? "Triangle impossible" : "Triangle possible";
+			console.log(Triangle);
+
+//Task 5
+			max = 12;
+			min = -5;
+			var y = Math.floor(Math.random()*(max-min)+min);
+			var x = Math.floor(Math.random()*(max-min)+min);
+
+			var x1 = 2;
+			var x2 = 12;
+			var y1 = -3;
+			var y2 = 3;
+
+			//check if it is inside
+			if((x >= x1 && x <= x2) && (y >= y1 && y <= y2 ))
+			{
+				if((x == x1 || x == x2) || (y == y1 || y == y2))
+					{
+					console.log(x,y,"Border");
+					}
+					else
+					{
+					console.log(x,y,"Inside");
+					}
+			}
+			else
+			{
+				console.log(x,y,"Outside");
+			}
+
+//Task 6*
+		
+			//var h=15;
+			//var x=35;
+			//var y=16;
+
+			var h = Math.floor((Math.random() * 60) + 0);
+			var x = Math.floor((Math.random() * 60) + 0);
+			var y =	Math.floor((Math.random() * 60) + 0);
+
+            var botRectStartX = 0;
+            var botRectEndX = 3 * h;
+
+            var botRectStartY = 0;
+            var botRectEndY = h;
+
+            var topRectStartX = h;
+            var topRectEndX = 2 * h;
+                
+            var topRectStartY = h;
+            var topRectEndY = 4 * h;
+            
+            var inBottomRectangle; 
+			var inTopRectangle; 
+
+            var onMiddle = x < h || x > 2 * h;
+			// -1 for Outside | 0 for Border | 1 for Inside
+			//check if it is inside
+            if ((x >= botRectStartX && x <= botRectEndX) && (y >= botRectStartY && y <= botRectEndY))
+            {	
+			// Check if it is on border
+                if ((x == botRectStartX || x == botRectEndX) || (y == botRectStartY || y == botRectEndY && onMiddle))
+					{ 
+                    inBottomRectangle = 0;
+					}
+                else 
+					{
+                    inBottomRectangle = 1;
+					}
+            }
+            else 
+				{
+                inBottomRectangle = -1;
+				}
+
+		//check if it is inside
+            if ((x >= topRectStartX && x <= topRectEndX) && (y >= topRectStartY && y <= topRectEndY))
+            {	
+			// Check if it is on border
+                if ((x == topRectStartX || x == topRectEndX) || (y == topRectEndY) || y == topRectStartY && onMiddle)
+					{ 
+                    inTopRectangle = 0;
+					}
+                else
+					{
+                    inTopRectangle = 1;
+					}
+            }
+            else{
+                inTopRectangle = -1;
+				}
+
+		//check both rectangles and display the result
+            if (inBottomRectangle == -1 && inTopRectangle == -1){
+                console.log(h,x,y, "Outside");
+				}
+            else if (inBottomRectangle == 0 || inTopRectangle == 0){
+                console.log(h,x,y, "Border");
+				}
+            else{
+                console.log(h,x,y, "Inside");
+				}
+
+
+
+</script>
+</body>
+</html>
