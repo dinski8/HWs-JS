@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+<script>
+
+//Task1 with reverse Method
+var fruits=["Banana","Orange","Apple"]
+console.log(fruits)
+var reversed = fruits.reverse()
+console.log(reversed)
+
+//Task 2
+
+/*var s = ""
+var i;
+for(i=0; i<=20; i +=1)
+{
+	if(i<=19){
+		 s += i + ",";
+		 console.log(s);
+	}
+	else{
+		s += i +"";
+	console.log(s);
+	}
+}*/
+
+var s = "";
+for(var i = 0; i <= 20; i += 1) {
+
+  if(i<=19){
+   s += i + ",";
+  }
+
+  else{
+   s += i + "";
+  }
+}
+console.log(s);
+
+//Task 3
+
+var result=0;
+var numbers = [];
+//numbers.length=20;
+for(var i=0; i<20; i++){
+
+	numbers[i]=Math.floor((Math.random() * 99) + 1);
+	result +=numbers[i]
+}
+
+console.log(numbers);
+console.log(result);
+
+//Task 4
+
+var even=[]
+for(i=i; i<=100; i+=2){
+	if (i % 5==0){
+		even.push(i)
+	}
+	else{}
+}
+	console.log(even)
+
+//Task 5
+
+var numbers = [];
+//numbers.length=50;
+
+for(var i=0; i<50; i++){
+
+	numbers[i]=Math.floor((Math.random() * 99) + 1);
+}
+console.log(numbers);
+
+var randomNum = Math.floor((Math.random() * 99) + 1);
+console.log(randomNum);
+
+console.log(numbers.includes(randomNum));
+
+//Task 6
+
+var numbers = [];
+var biggest = [];
+
+for(i=0; i<10; i++){
+	numbers[i]=Math.floor((Math.random() * 99) + 1);
+	}
+	numbers.sort(function(a, b){return b-a});
+	console.log(numbers);
+
+var x= numbers[0]
+var y= numbers[1]
+var z= numbers[2]
+
+biggest=[x,y,z];
+console.log(biggest);
+
+</script>
+</body>
+</html>
