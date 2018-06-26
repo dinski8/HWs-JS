@@ -9,10 +9,26 @@
 <script>
 
 //Task1 with reverse Method
-var fruits=["Banana","Orange","Apple"]
-console.log(fruits)
-var reversed = fruits.reverse()
-console.log(reversed)
+var fruits=["Banana","Orange","Apple"];
+console.log(fruits);
+var reversed = fruits.reverse();
+console.log(reversed);
+
+//Task 1 with for loop
+
+var newFruits=[];
+var fruits=["Banana","Orange","Apple"];
+len=fruits.length;
+console.log(len);
+
+for(i=0; i<len; i++){
+
+//console.log(fruits[len-1])
+newFruits.push(fruits[len-(1+i)])
+	
+}
+console.log(newFruits)
+
 
 //Task 2
 
