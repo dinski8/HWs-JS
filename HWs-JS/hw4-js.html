@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+<script>
+/*1 намерете сбора на всияки елементи на които колоната и реда са четни номера ok
+2 намерете принтирайте на конзолата първо левия и после десния диагонал
+3 извадете всички четно числа в един масив и всички нечетни в друг
+4 намерете принтирайте на числата само от последмата колона
+5 заместете свички стойности които се делят на 3 и 5 с true
+*/
+let arr = [
+    [1, 3, 4, 9, 5],
+    [3, 1, 5, 6, 2],
+    [9, 5, 6, 8, 3],
+    [2, 8, 7, 5, 1],
+    [5, 1, 3, 5, 9]
+]
+console.log(arr)
+//Task1
+/*
+	let sum=0
+	for (let i=0; i<arr.length; i+=2){
+	
+		for(let j=0; j<arr.length; j+=2){
+		console.log(arr[i][j])
+		  sum+=arr[i][j]
+		}
+	   }
+	console.log(sum)
+*/
+//Task2a
+/*
+	for (let i = 0; i < arr.length; i++) {
+		console.log(arr[i][i])
+	}
+*/
+
+//Task2b
+/*
+	let y=0;
+	for(i=4; i>=0; i--){	
+		console.log(arr[y][i])
+		y++
+	}
+*/
+
+//Task3
+/*
+	let arr1=[]
+	let arr2=[]
+	for(i=0; i<arr.length; i++){
+
+		for(j=0; j<arr.length; j++){
+	
+			if(arr[i][j] % 2==0){
+				arr1.push(arr[i][j])
+			}
+			else{
+				arr2.push(arr[i][j])
+			}
+		}
+	}
+		console.log(arr1)
+		console.log(arr2)
+*/
+
+//Task4
+/*
+for (i=0; i<arr.length; i++){
+	for(j=0; j<arr.length; j++){
+		if(j=[4]){
+			console.log(arr[i][j])
+		}
+	}
+}
+*/
+
+//Task5
+let arr1=[]
+for (i=0; i<arr.length; i++){
+	for(j=0; j<arr.length; j++){
+		if(arr[i][j] % 3==0 || arr[i][j] % 5==0 ){
+			//console.log("true")
+			arr1.push(true)
+		}
+		else{
+			//console.log(arr[i][j])
+			arr1.push(arr[i][j])
+		}
+	}
+}
+console.log(arr1)
+
+
+</script>
+</body>
+</html>
+
