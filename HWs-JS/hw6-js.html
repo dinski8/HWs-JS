@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+<script>
+
+function School(){
+
+    //Define an array of possible first names
+    let firstNames = ["Georgi", "Dimitar","Petar","Kalin","Daniel","Rosen","Boris","Panayot", "Yavor", "Krasimir", "Svetozar","Martin","Anton","Tihomir","Vladimir","Atanas","Dobril", "Konstantin", "Radoslav", "Valko", "Avraam", "Boyko", "Boyan", "Darko", "Zhivko"]
+    //Define an array of possible  last names
+    let lastNames = ["Antonov", "Dimitrov","Kolev","Kyuchukov","Simeonov","Karadjov","Botev","Gerdjikov", "Gavrilov", "Dobrilov", "Konstantinov", "Radoslavov", "Boyanov", "Zhivkov", "Todorov"]
+    //Define an array of possible subject names   
+    let subjectNames = ["Geography", "Math", "Art", "Literature", "Sports", "History"]
+    //Define an array of possible subject grades 
+	let subjectGrades = [2, 3, 4, 5, 6]  
+    //Define an array where report cards of every student will be stored
+    let arrayReportCard = []
+    
+	///// Random functions
+    function getFirstName(){
+        return firstNames[Math.floor(Math.random() * (firstNames.length-1)) ]
+    }
+    function getLastName(){
+        return lastNames[Math.floor(Math.random() * (lastNames.length-1)) ]
+    }
+    function getSubjectName(){
+        return subjectNames[Math.floor(Math.random() * (subjectNames.length-1)) ]
+    }
+    function getRandomGrade(){
+        return subjectGrades[Math.floor(Math.random() * (subjectGrades.length-1)) ]
+    }
+
+	//// Define objects
+    function GradeClass(className){
+        this.className = className         
+    }
+    function Person(fName,lName){
+        this._fName=fName;
+        this._lName=lName;
+    }  
+    function Teacher(fName,lName,subject){
+        Person.call(this,fName,lName);
+        this.subject=subject; 
+    }
+    function Student(fName,lName,Grade){
+         Person.call(this, fName, lName);
+         this.Grade=Grade;    
+    }
+    function ReportCard(student, subjectNames, amount){
+        this.student = student
+        this.subjectNames=subjectNames;
+        this.gradeAmount=amount;        
+    }
+    
+	///// Initialization 
+
+    //Initilalize classes in School
+    let gradeClass = []
+    for(let i=7; i<=12; i++){   
+        gradeClass.push(new GradeClass(i))
+    }
+    //Initilalize teachers and students in each grade
+    for (let i= 0; i<gradeClass.length; i++){
+        gradeClass[i].supervisor = new Teacher(getFirstName(), getLastName(), getSubjectName())
+        gradeClass[i].students = [] 
+        for (let j = 0; j <15; j++){ 
+            let student = new Student(getFirstName(), getLastName(), gradeClass[i].className )            
+            let arraySubjectGrades = []    
+            //Initilalize students' subject grades with a random grade
+            for(k=0; k<=subjectNames.length-1; k++){        
+                arraySubjectGrades.push(getRandomGrade()) 
+            }
+            arrayReportCard.push(new ReportCard(student, subjectNames, arraySubjectGrades))
+            gradeClass[i].students.push(student)
+        }
+    }
+	//// 
+    ReportCard.prototype.calculateAverageGrade = function(){
+        let sum = 0
+        for(let i=0; i<subjectNames.length; i++){
+            sum+=this.gradeAmount[i]
+        }
+        return (sum/(subjectNames.length)).toFixed(2)
+    }
+    Teacher.prototype.writeGrades = function(amountToWrite){
+       for(let i=0; i<arrayReportCard.length; i++){
+           for(let j=0; j<subjectNames.length; j++){
+                arrayReportCard[i].gradeAmount[j] = amountToWrite
+           }
+       }
+    }
+
+    //Display students and teachers
+    for(i=0; i<gradeClass.length; i++){            
+         console.log("I'm " + gradeClass[i].supervisor._fName.toUpperCase() + " " + gradeClass[i].supervisor._lName.toUpperCase() + ". Im a teacher." + " I teach " + gradeClass[i].className + "th grade " + gradeClass[i].supervisor.subject  + ".")
+         for(j=0; j<15; j++){
+              console.log("I'm " + gradeClass[i].students[j]._fName + " " + gradeClass[i].students[j]._lName + ". I'm a student.")              
+         }
+    }
+    //Display student's grades
+    for(let i = 0; i<arrayReportCard.length; i++){        
+         console.log("The grades of " + arrayReportCard[i].student._fName +" " + arrayReportCard[i].student._lName + " are " + arrayReportCard[i].gradeAmount + " in " + arrayReportCard[i].subjectNames + ". The average is " + arrayReportCard[i].calculateAverageGrade() + ".")
+    }
+   
+}
+School()
+
+</script>
+</body>
+</html>
